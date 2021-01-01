@@ -9,7 +9,7 @@ public:
 	unsigned char pad02[122];
 	// Unique ID identifing this object
 	uint32_t m_EntityUniqueId;
-	unsigned char pad03[1876];
+	unsigned char pad03[1872];
 	n_wstring m_Charname;
 	unsigned char m_Level;
 	unsigned char pad04[7];
