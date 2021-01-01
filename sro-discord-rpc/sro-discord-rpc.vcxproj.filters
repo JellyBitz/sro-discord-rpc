@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Lib">
+      <UniqueIdentifier>{b43bbdd7-ce6d-463b-a190-92ca2cbabe30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Lib\discord-game-sdk">
+      <UniqueIdentifier>{48498b29-a951-40c3-a974-5dfb80f2e209}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Lib\silkroad">
+      <UniqueIdentifier>{f35dd0a6-3261-42d5-9862-9309885ab335}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Lib\silkroad\data">
+      <UniqueIdentifier>{9d23368f-fb8d-4ea8-8022-5e0ab71789fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Lib\silkroad\network">
+      <UniqueIdentifier>{ae2c4130-d072-495b-bc2e-3edf1fd9e59b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="hook.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DllMain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AppManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Lib\discord-game-sdk\achievement_manager.cpp">
+      <Filter>Lib\discord-game-sdk</Filter>
+    </ClCompile>
+    <ClCompile Include="Lib\discord-game-sdk\activity_manager.cpp">
+      <Filter>Lib\discord-game-sdk</Filter>
+    </ClCompile>
+    <ClCompile Include="Lib\discord-game-sdk\application_manager.cpp">
+      <Filter>Lib\discord-game-sdk</Filter>
+    </ClCompile>
+    <ClCompile Include="Lib\discord-game-sdk\core.cpp">
+      <Filter>Lib\discord-game-sdk</Filter>
+    </ClCompile>
+    <ClCompile Include="Lib\discord-game-sdk\image_manager.cpp">
+      <Filter>Lib\discord-game-sdk</Filter>
+    </ClCompile>
+    <ClCompile Include="Lib\discord-game-sdk\lobby_manager.cpp">
+      <Filter>Lib\discord-game-sdk</Filter>
+    </ClCompile>
+    <ClCompile Include="Lib\discord-game-sdk\network_manager.cpp">
+      <Filter>Lib\discord-game-sdk</Filter>
+    </ClCompile>
+    <ClCompile Include="Lib\discord-game-sdk\overlay_manager.cpp">
+      <Filter>Lib\discord-game-sdk</Filter>
+    </ClCompile>
+    <ClCompile Include="Lib\discord-game-sdk\relationship_manager.cpp">
+      <Filter>Lib\discord-game-sdk</Filter>
+    </ClCompile>
+    <ClCompile Include="Lib\discord-game-sdk\storage_manager.cpp">
+      <Filter>Lib\discord-game-sdk</Filter>
+    </ClCompile>
+    <ClCompile Include="Lib\discord-game-sdk\store_manager.cpp">
+      <Filter>Lib\discord-game-sdk</Filter>
+    </ClCompile>
+    <ClCompile Include="Lib\discord-game-sdk\types.cpp">
+      <Filter>Lib\discord-game-sdk</Filter>
+    </ClCompile>
+    <ClCompile Include="Lib\discord-game-sdk\user_manager.cpp">
+      <Filter>Lib\discord-game-sdk</Filter>
+    </ClCompile>
+    <ClCompile Include="Lib\discord-game-sdk\voice_manager.cpp">
+      <Filter>Lib\discord-game-sdk</Filter>
+    </ClCompile>
+    <ClCompile Include="CMsgStreamBuffer.cpp">
+      <Filter>Lib\silkroad\data</Filter>
+    </ClCompile>
+    <ClCompile Include="CTextStringManager.cpp">
+      <Filter>Lib\silkroad</Filter>
+    </ClCompile>
+    <ClCompile Include="CPSMission.cpp">
+      <Filter>Lib\silkroad\network</Filter>
+    </ClCompile>
+    <ClCompile Include="CString.h">
+      <Filter>Lib\silkroad\data</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="hook.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DllMain.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AppManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\discord-game-sdk\achievement_manager.h">
+      <Filter>Lib\discord-game-sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\discord-game-sdk\activity_manager.h">
+      <Filter>Lib\discord-game-sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\discord-game-sdk\application_manager.h">
+      <Filter>Lib\discord-game-sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\discord-game-sdk\core.h">
+      <Filter>Lib\discord-game-sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\discord-game-sdk\discord.h">
+      <Filter>Lib\discord-game-sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\discord-game-sdk\event.h">
+      <Filter>Lib\discord-game-sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\discord-game-sdk\ffi.h">
+      <Filter>Lib\discord-game-sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\discord-game-sdk\image_manager.h">
+      <Filter>Lib\discord-game-sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\discord-game-sdk\lobby_manager.h">
+      <Filter>Lib\discord-game-sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\discord-game-sdk\network_manager.h">
+      <Filter>Lib\discord-game-sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\discord-game-sdk\overlay_manager.h">
+      <Filter>Lib\discord-game-sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\discord-game-sdk\relationship_manager.h">
+      <Filter>Lib\discord-game-sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\discord-game-sdk\resource.h">
+      <Filter>Lib\discord-game-sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\discord-game-sdk\storage_manager.h">
+      <Filter>Lib\discord-game-sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\discord-game-sdk\store_manager.h">
+      <Filter>Lib\discord-game-sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\discord-game-sdk\types.h">
+      <Filter>Lib\discord-game-sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\discord-game-sdk\user_manager.h">
+      <Filter>Lib\discord-game-sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\discord-game-sdk\voice_manager.h">
+      <Filter>Lib\discord-game-sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="CMsgStreamBuffer.h">
+      <Filter>Lib\silkroad\data</Filter>
+    </ClInclude>
+    <ClInclude Include="CTextStringManager.h">
+      <Filter>Lib\silkroad</Filter>
+    </ClInclude>
+    <ClInclude Include="CPSMission.h">
+      <Filter>Lib\silkroad\network</Filter>
+    </ClInclude>
+    <ClInclude Include="ICPlayer.h">
+      <Filter>Lib\silkroad</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobalHelpers.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

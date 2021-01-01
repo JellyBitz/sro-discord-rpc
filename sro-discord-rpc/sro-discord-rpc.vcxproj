@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{64FA52CD-B751-4FF5-B7A5-DDBBD069AE36}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>sro-discord-rpc</RootNamespace>
+    <ProjectName>sro-discord-rpc</ProjectName>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <TargetName>$(ProjectName)</TargetName>
+    <IncludePath>E:\Programs\Visual Studio\VS 2005 include copy\include;E:\Programs\Visual Studio\VS 2005 include copy\PlatformSDK\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>E:\Programs\Visual Studio\VS 2005 include copy\lib;E:\Programs\Visual Studio\VS 2005 include copy\PlatformSDK\Lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;VSROPROJ_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;VSROPROJ_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>discord_game_sdk.dll.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)Resources\Lib</AdditionalLibraryDirectories>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="CMsgStreamBuffer.cpp" />
+    <ClCompile Include="CPSMission.cpp" />
+    <ClCompile Include="CTextStringManager.cpp" />
+    <ClCompile Include="DllMain.cpp" />
+    <ClCompile Include="hook.cpp" />
+    <ClCompile Include="AppManager.cpp" />
+    <ClCompile Include="Lib\discord-game-sdk\achievement_manager.cpp" />
+    <ClCompile Include="Lib\discord-game-sdk\activity_manager.cpp" />
+    <ClCompile Include="Lib\discord-game-sdk\application_manager.cpp" />
+    <ClCompile Include="Lib\discord-game-sdk\core.cpp" />
+    <ClCompile Include="Lib\discord-game-sdk\image_manager.cpp" />
+    <ClCompile Include="Lib\discord-game-sdk\lobby_manager.cpp" />
+    <ClCompile Include="Lib\discord-game-sdk\network_manager.cpp" />
+    <ClCompile Include="Lib\discord-game-sdk\overlay_manager.cpp" />
+    <ClCompile Include="Lib\discord-game-sdk\relationship_manager.cpp" />
+    <ClCompile Include="Lib\discord-game-sdk\storage_manager.cpp" />
+    <ClCompile Include="Lib\discord-game-sdk\store_manager.cpp" />
+    <ClCompile Include="Lib\discord-game-sdk\types.cpp" />
+    <ClCompile Include="Lib\discord-game-sdk\user_manager.cpp" />
+    <ClCompile Include="Lib\discord-game-sdk\voice_manager.cpp" />
+    <ClCompile Include="CString.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CMsgStreamBuffer.h" />
+    <ClInclude Include="CPSMission.h" />
+    <ClInclude Include="CTextStringManager.h" />
+    <ClInclude Include="DllMain.h" />
+    <ClInclude Include="GlobalHelpers.h" />
+    <ClInclude Include="hook.h" />
+    <ClInclude Include="AppManager.h" />
+    <ClInclude Include="ICPlayer.h" />
+    <ClInclude Include="Lib\discord-game-sdk\achievement_manager.h" />
+    <ClInclude Include="Lib\discord-game-sdk\activity_manager.h" />
+    <ClInclude Include="Lib\discord-game-sdk\application_manager.h" />
+    <ClInclude Include="Lib\discord-game-sdk\core.h" />
+    <ClInclude Include="Lib\discord-game-sdk\discord.h" />
+    <ClInclude Include="Lib\discord-game-sdk\event.h" />
+    <ClInclude Include="Lib\discord-game-sdk\ffi.h" />
+    <ClInclude Include="Lib\discord-game-sdk\image_manager.h" />
+    <ClInclude Include="Lib\discord-game-sdk\lobby_manager.h" />
+    <ClInclude Include="Lib\discord-game-sdk\network_manager.h" />
+    <ClInclude Include="Lib\discord-game-sdk\overlay_manager.h" />
+    <ClInclude Include="Lib\discord-game-sdk\relationship_manager.h" />
+    <ClInclude Include="Lib\discord-game-sdk\resource.h" />
+    <ClInclude Include="Lib\discord-game-sdk\storage_manager.h" />
+    <ClInclude Include="Lib\discord-game-sdk\store_manager.h" />
+    <ClInclude Include="Lib\discord-game-sdk\types.h" />
+    <ClInclude Include="Lib\discord-game-sdk\user_manager.h" />
+    <ClInclude Include="Lib\discord-game-sdk\voice_manager.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
