@@ -2,5 +2,7 @@
 .vs/
 
 # Auto generated files
+Debug/*
+Release/*
 sro-discord-rpc/Debug/*
 sro-discord-rpc/Release/*
