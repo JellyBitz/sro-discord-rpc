@@ -90,7 +90,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CMsgStreamBuffer.cpp" />
-    <ClCompile Include="CPSMission.cpp" />
+    <ClCompile Include="EventHandler.cpp" />
     <ClCompile Include="CTextStringManager.cpp" />
     <ClCompile Include="DllMain.cpp" />
     <ClCompile Include="hook.cpp" />
@@ -113,7 +113,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CMsgStreamBuffer.h" />
-    <ClInclude Include="CPSMission.h" />
+    <ClInclude Include="EventHandler.h" />
     <ClInclude Include="CTextStringManager.h" />
     <ClInclude Include="DllMain.h" />
     <ClInclude Include="GlobalHelpers.h" />

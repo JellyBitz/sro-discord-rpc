@@ -6,14 +6,14 @@
 #include <chrono>
 #include <csignal>
 #include "GlobalHelpers.h"
-#include "CPSMission.h"
+#include "EventHandler.h"
 #include "CTextStringManager.h"
 #include "CString.h"
 #include "ICPlayer.h"
 
 using namespace std;
 
-// Static
+/// Static stuffs
 DiscordClient AppManager::DiscordClient;
 GAME_STATE AppManager::m_GameState;
 
@@ -31,9 +31,9 @@ void AppManager::Initialize()
 // Set the respectives hooks
 void AppManager::InitHooks()
 {
-	replaceAddr(0x00DD92BC + 0x18, addr_from_this(&CPSMission::OnNetMsg));
-	replaceAddr(0x00DD811C + 0x18, addr_from_this(&CPSMission::OnCharacterSelection));
-	replaceAddr(0x00DD440C, addr_from_this(&CPSMission::OnPacketRecv));
+	replaceAddr(0x00DD92BC + 0x18, addr_from_this(&EventHandler::OnNetMsg));
+	replaceAddr(0x00DD811C + 0x18, addr_from_this(&EventHandler::OnCharacterSelection));
+	replaceAddr(0x00DD440C, addr_from_this(&EventHandler::OnPacketRecv));
 }
 // Initialize the rich presence for the current game in a independant thread
 DWORD WINAPI AppManager::InitDiscord()
@@ -79,7 +79,7 @@ DWORD WINAPI AppManager::InitDiscord()
 	});
 
 	// Lock thread checking discord callbacks
-	delay = 2000;
+	delay = 5000;
 	while (GAME_STATE::FINISH)
 	{
 		DiscordClient.Core->RunCallbacks();

@@ -1,7 +1,9 @@
 #pragma once
 #include "CMsgStreamBuffer.h"
-class CPSMission
+class EventHandler
 {
+private:
+	static bool m_IsRegionChanged;
 public:
 	int OnPacketRecv(class MsgStreamBuffer* MsgBuffer);
 	int OnNetMsg(class MsgStreamBuffer* MsgBuffer);

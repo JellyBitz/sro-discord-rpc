@@ -87,11 +87,11 @@
     <ClCompile Include="CTextStringManager.cpp">
       <Filter>Lib\silkroad</Filter>
     </ClCompile>
-    <ClCompile Include="CPSMission.cpp">
-      <Filter>Lib\silkroad\network</Filter>
-    </ClCompile>
     <ClCompile Include="CString.h">
       <Filter>Lib\silkroad\data</Filter>
+    </ClCompile>
+    <ClCompile Include="EventHandler.cpp">
+      <Filter>Lib\silkroad\network</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -164,14 +164,14 @@
     <ClInclude Include="CTextStringManager.h">
       <Filter>Lib\silkroad</Filter>
     </ClInclude>
-    <ClInclude Include="CPSMission.h">
-      <Filter>Lib\silkroad\network</Filter>
-    </ClInclude>
     <ClInclude Include="ICPlayer.h">
       <Filter>Lib\silkroad</Filter>
     </ClInclude>
     <ClInclude Include="GlobalHelpers.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EventHandler.h">
+      <Filter>Lib\silkroad\network</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
