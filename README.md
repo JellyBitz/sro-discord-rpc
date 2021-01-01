@@ -5,7 +5,18 @@ Attract more players by using Discord Rich Presence on Silkroad Online!
 - Show game status
 - Show charname, level, and guildname if exists
 - Show region name and his related image
-- Updates level, and region with high accuracy
+- Updates level, and region almost in realtime!
+
+### Preview
+<img src="https://i.imgur.com/oWxQ0N1.png">
+
+### Starter Guide:
+1. Create an application on [discord developer portal](https://www.elitepvpers.com/link/?https://discord.com/developers/applications)
+2. Fill some data there but take note about your app **CLIENT ID**
+3. Then go to _Rich Presence > Art Assets_ and upload all the images from folder `sro-discord-rpc/Resources/assets`
+4. Open your Visual Studio 20XX and set your **CLIENT ID** into `AppManager.cpp`
+5. Build/compile it on RELEASE mode, copy the DLL's (`sro-discord-rpc.dll` and `discord_game_sdk.dll`) to your silkroad folder
+6. Inject the DLL (you could use STUD_PE or similars) and done! 
 
 ---
 > ### Do you like this project ? 
