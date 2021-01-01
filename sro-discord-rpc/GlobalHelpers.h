@@ -30,7 +30,18 @@ inline std::string n_wstr_to_str(n_wstring &nws) {
 	return wstr_to_str(std::wstring(nws));
 }
 
-/// Printing stuffs for debugging
+// Check if the string starts equal to the given string
+inline bool str_starts_with(std::string const &value, std::string const &preffix) {
+	return value.rfind(preffix, 0) == 0;
+}
+// Check if the string ends equal to the given string
+inline bool str_ends_with(std::string const &value, std::string const &suffix) {
+	if (value.length() >= suffix.length())
+		return value.compare(value.length() - suffix.length(), suffix.length(), suffix) == 0;
+	return false;
+}
+
+/// Printing stuffs for debugging only
 
 // Prints char array as raw of bytes
 inline void PrintByteArray(unsigned char* ByteArray, unsigned int Length) {

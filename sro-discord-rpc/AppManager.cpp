@@ -21,8 +21,8 @@ GAME_STATE AppManager::m_GameState;
 void AppManager::Initialize()
 {
 	// Attach console
-	AllocConsole();
-	freopen_s((FILE**)stdout, "CONOUT$", "w", stdout);
+	//AllocConsole();
+	//freopen_s((FILE**)stdout, "CONOUT$", "w", stdout);
 
 	AppManager::InitHooks();
 	CreateThread(0, 0, (LPTHREAD_START_ROUTINE)AppManager::InitDiscord, 0, 0, 0);
@@ -162,8 +162,44 @@ void AppManager::UpdateDiscord()
 				else if (regionName == "Constantinople") {
 					activity.GetAssets().SetLargeImage("loading_constantinople");
 				}
-				else if (regionName.rfind("Alexandria", 0) == 0) {
+				else if (regionName == "Alexandria") {
 					activity.GetAssets().SetLargeImage("loading_alex");
+				}
+				else if (regionName == "Baghdad") {
+					activity.GetAssets().SetLargeImage("loading_baghdad_2011");
+				}
+				else if (regionName == "Donwhang Stone Cave") {
+					activity.GetAssets().SetLargeImage("loading_dungeons_donwhang");
+				}
+				else if (str_starts_with(regionName,"Underground Level")) {
+					activity.GetAssets().SetLargeImage("loading_royalmausoleum");
+				}
+				else if (regionName == "Pharaoh tomb") {
+					activity.GetAssets().SetLargeImage("loading_pharaoh");
+				}
+				else if (regionName == "Togui Village") {
+					activity.GetAssets().SetLargeImage("loading_togui_2011");
+				}
+				else if (regionName == "Flame Mountain") {
+					activity.GetAssets().SetLargeImage("loading_flame_2011");
+				}
+				else if (str_ends_with(regionName, " of the Shipwreck")) {
+					activity.GetAssets().SetLargeImage("loading_wreck_2011");
+				}
+				else if (regionName == "Jupiter Temple") {
+					activity.GetAssets().SetLargeImage("loading_jupiter_field_2011");
+				}
+				else if (str_ends_with(regionName,"'s Room")) {
+					activity.GetAssets().SetLargeImage("loading_hall_2011");
+				}
+				else if ( regionName == "Zealots Hideout") {
+					activity.GetAssets().SetLargeImage("loading_hideout_2011");
+				}
+				else if (regionName == "Petra (Dungeon)") {
+					activity.GetAssets().SetLargeImage("loading_petra_2011");
+				}
+				else if (regionName == "Devil's Garden (Dungeon)") {
+					activity.GetAssets().SetLargeImage("loading_garden_2011");
 				}
 				else {
 					activity.GetAssets().SetLargeImage("loading_default");
