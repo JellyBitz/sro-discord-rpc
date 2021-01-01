@@ -135,7 +135,7 @@ void AppManager::UpdateDiscord()
 				details << n_wstr_to_str(g_CICPlayer->m_Charname) << " Lv." << (int)g_CICPlayer->m_Level;
 				// Check guild name
 				auto guildName = g_CICPlayer->GetGuildName();
-				if (guildName != L"")
+				if (guildName.c_str() != L"")
 				{
 					details << " [" << n_wstr_to_str(guildName) << "]";
 				}
