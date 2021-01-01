@@ -3,7 +3,6 @@
 #include <sstream>
 #include "AppManager.h"
 #include "Lib/discord-game-sdk/discord.h"
-#include "CTextStringManager.h"
 #include "ICPlayer.h"
 #include "GlobalHelpers.h"
 
@@ -55,6 +54,12 @@ int EventHandler::OnPacketRecv(MsgStreamBuffer* MsgBuffer)
 				}
 			}
 		}
+	}
+	break;
+	case 0x34B4: // SERVER_GUILD_DATA_END
+	{
+		// Guild data has been processed, update guild name
+		AppManager::UpdateGameState();
 	}
 	break;
 	}
