@@ -6,7 +6,7 @@ class CICPlayer
 {
 public:
 	unsigned char pad01[124];
-	short m_Region;
+	unsigned short m_Region;
 	unsigned char pad02[122];
 	uint32_t m_EntityUniqueId;
 	unsigned char pad03[1872];
