@@ -58,8 +58,11 @@ int EventHandler::OnPacketRecv(MsgStreamBuffer* MsgBuffer)
 	break;
 	case 0x34B4: // SERVER_GUILD_DATA_END
 	{
+		auto result = reinterpret_cast<int(__thiscall*)(EventHandler*, MsgStreamBuffer*)>(0x0084CAB0)(this, MsgBuffer);
 		// Guild data has been processed, update guild name
 		AppManager::UpdateGameState();
+		// return normally
+		return result;
 	}
 	break;
 	}

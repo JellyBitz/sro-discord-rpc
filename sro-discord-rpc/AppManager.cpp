@@ -134,10 +134,11 @@ void AppManager::UpdateDiscord()
 				stringstream details;
 				details << n_wstr_to_str(g_CICPlayer->m_Charname) << " Lv." << (int)g_CICPlayer->m_Level;
 				// Check guild name
-				auto guildName = g_CICPlayer->GetGuildName();
-				if (guildName.c_str() != L"")
+				auto nwGuildName = g_CICPlayer->GetGuildName();
+				auto guildName = n_wstr_to_str(nwGuildName);
+				if (guildName != "")
 				{
-					details << " [" << n_wstr_to_str(guildName) << "]";
+					details << " [" << guildName << "]";
 				}
 				activity.SetDetails(ss_to_str(details).c_str());
 				// Region Name
