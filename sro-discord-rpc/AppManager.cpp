@@ -26,7 +26,9 @@ void AppManager::Initialize()
 	//freopen_s((FILE**)stdout, "CONOUT$", "w", stdout);
 
 	AppManager::InitHooks();
-	CreateThread(0, 0, (LPTHREAD_START_ROUTINE)AppManager::InitDiscord, 0, 0, 0);
+	auto hThread = CreateThread(0, 0, (LPTHREAD_START_ROUTINE)AppManager::InitDiscord, 0, 0, 0);
+	// Set discord stuffs as background process (below normal)
+	SetThreadPriority(hThread, -1);
 }
 
 // Set the respectives hooks
@@ -110,11 +112,12 @@ void AppManager::UpdateGameState()
 // Updates discord rich presence
 void AppManager::UpdateDiscord()
 {
-	// update rich presence only when the state has not been finished
+	// Make sure client is not exiting
 	if (m_GameState != GAME_STATE::FINISH)
 	{
-		// Check if the discord has been initialized
-		if (DiscordClient.Core) {
+		// Check if discord has been initialized
+		if (DiscordClient.Core)
+		{
 			discord::Activity activity{};
 			// Game state
 			switch (m_GameState)
