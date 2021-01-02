@@ -1,8 +1,8 @@
 #pragma once
-
 #include <memory>
 #include <Windows.h>
 #include "Lib/discord-game-sdk/discord.h"
+#include <time.h>
 
 // Discord client wrapper
 struct DiscordClient
@@ -27,6 +27,7 @@ enum GAME_STATE : char
 class AppManager
 {
 private:
+	static time_t m_InGameTimestamp;
 	static GAME_STATE m_GameState;
 	static void InitHooks();
 	static DWORD WINAPI InitDiscord();

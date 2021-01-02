@@ -16,6 +16,7 @@ using namespace std;
 /// Static stuffs
 DiscordClient AppManager::DiscordClient;
 GAME_STATE AppManager::m_GameState;
+time_t AppManager::m_InGameTimestamp;
 
 // Initialize core of the application
 void AppManager::Initialize()
@@ -91,6 +92,11 @@ DWORD WINAPI AppManager::InitDiscord()
 // Updates the game state and discord rich presence associated
 void AppManager::UpdateGameState(GAME_STATE State)
 {
+	// Catch first INGAME state
+	if (m_GameState != GAME_STATE::IN_GAME && State == GAME_STATE::IN_GAME)
+	{
+		m_InGameTimestamp = std::time(nullptr);
+	}
 	m_GameState = State;
 	UpdateDiscord();
 }
@@ -209,6 +215,8 @@ void AppManager::UpdateDiscord()
 				activity.GetAssets().SetSmallImage("logo");
 				// Game website or Character race
 				activity.GetAssets().SetSmallText("SilkroadLatino.com");
+				// Set Timestamp (Elapsed time)
+				activity.GetTimestamps().SetStart(m_InGameTimestamp);
 				break;
 			}
 			// Always will be playing mode
