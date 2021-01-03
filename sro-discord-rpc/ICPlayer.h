@@ -1,20 +1,35 @@
 #pragma once
 #include "CString.h"
 
+// Possible types for job mode
+enum JOB_TYPE : char {
+	TRADER = 0,
+	THIEF = 1,
+	HUNTER = 3,
+	NONE = 4
+};
+
 // Reflects a player entity in game
 class CICPlayer
 {
 public:
-	unsigned char pad01[124];
+	/// Entity
+	unsigned char pad_0x00[124];
 	unsigned short m_Region;
-	unsigned char pad02[122];
+	unsigned char pad_0x7E[122];
 	uint32_t m_EntityUniqueId;
-	unsigned char pad03[1872];
+	unsigned char pad_0xFC[344];
+	/// Character
+	unsigned char pad_0x254[697];
+	JOB_TYPE m_JobType;
+	unsigned char pad_0x50E[638];
+	/// User
+	unsigned char pad_0x78C[160];
+	/// Player
+	unsigned char pad_0x82C[32];
 	n_wstring m_Charname;
 	unsigned char m_Level;
-	unsigned char pad04[7];
-	long long int m_ExpCurrent;
-	unsigned char pad05[6304];
+	unsigned char pad_0x869[6319];
 public:
 	// Returns the guild name or an empty string
 	const n_wstring GetGuildName()

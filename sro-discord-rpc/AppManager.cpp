@@ -11,8 +11,6 @@
 #include "CString.h"
 #include "ICPlayer.h"
 
-using namespace std;
-
 /// Static stuffs
 DiscordClient AppManager::DiscordClient;
 GAME_STATE AppManager::m_GameState;
@@ -49,9 +47,9 @@ DWORD WINAPI AppManager::InitDiscord()
 		auto result = discord::Core::Create(CLIENT_ID, DiscordCreateFlags_NoRequireDiscord, &core);
 		// Check failure
 		if (!core) {
-			cout << "Discord Create (Err " << static_cast<int>(result) << ")" << endl;
+			std::cout << "Discord Create (Err " << static_cast<int>(result) << ")" << std::endl;
 			// Try again
-			this_thread::sleep_for(chrono::milliseconds(delay));
+			std::this_thread::sleep_for(std::chrono::milliseconds(delay));
 		}
 	} while (!core);
 	// Success
@@ -60,7 +58,7 @@ DWORD WINAPI AppManager::InitDiscord()
 	// Log stuffs
 	DiscordClient.Core->SetLogHook(
 		discord::LogLevel::Debug, [](discord::LogLevel level, const char* message) {
-		cout << "Log(" << static_cast<uint32_t>(level) << "): " << message << endl;
+		std::cout << "Log(" << static_cast<uint32_t>(level) << "): " << message << std::endl;
 	});
 
 	// Called when the discord client connects to this API
@@ -68,9 +66,13 @@ DWORD WINAPI AppManager::InitDiscord()
 		// Set current user
 		auto result = DiscordClient.Core->UserManager().GetCurrentUser(&DiscordClient.CurrentUser);
 
-		cout << "Connected user: "
+		// Check error
+		if (result != discord::Result::Ok)
+			std::cout << "Discord Connection (Err " << static_cast<int>(result) << ")" << std::endl;
+
+		std::cout << "Connected user: "
 			<< DiscordClient.CurrentUser.GetUsername() << "#"
-			<< DiscordClient.CurrentUser.GetDiscriminator() << endl;
+			<< DiscordClient.CurrentUser.GetDiscriminator() << std::endl;
 
 		// Updates the rich presence
 		AppManager::UpdateGameState();
@@ -86,7 +88,7 @@ DWORD WINAPI AppManager::InitDiscord()
 	while (GAME_STATE::FINISH)
 	{
 		DiscordClient.Core->RunCallbacks();
-		this_thread::sleep_for(chrono::milliseconds(delay));
+		std::this_thread::sleep_for(std::chrono::milliseconds(delay));
 	}
 	return 0;
 }
@@ -138,9 +140,25 @@ void AppManager::UpdateDiscord()
 				activity.GetAssets().SetLargeText("SilkroadLatino.com");
 				break;
 			case GAME_STATE::IN_GAME:
-				activity.SetState("In Game");
+			{
+				// Show job mode activity
+				switch (g_CICPlayer->m_JobType)
+				{
+				case JOB_TYPE::TRADER:
+					activity.SetState("Job Mode (Trader)");
+					break;
+				case JOB_TYPE::THIEF:
+					activity.SetState("Job Mode (Thief)");
+					break;
+				case JOB_TYPE::HUNTER:
+					activity.SetState("Job Mode (Hunter)");
+					break;
+				default:
+					activity.SetState("In Game");
+					break;
+				}
 				// Player details
-				stringstream details;
+				std::stringstream details;
 				details << n_wstr_to_str(g_CICPlayer->m_Charname) << " Lv." << (int)g_CICPlayer->m_Level;
 				// Check guild name
 				auto nwGuildName = g_CICPlayer->GetGuildName();
@@ -151,7 +169,7 @@ void AppManager::UpdateDiscord()
 				}
 				activity.SetDetails(ss_to_str(details).c_str());
 				// Region Name
-				stringstream ssRegion;
+				std::stringstream ssRegion;
 				ssRegion << g_CICPlayer->m_Region;
 				auto nwRegionName = g_CTextStringManager->GetString(ss_to_n_wstr(ssRegion));
 				auto regionName = n_wstr_to_str(nwRegionName);
@@ -220,7 +238,8 @@ void AppManager::UpdateDiscord()
 				activity.GetAssets().SetSmallText("SilkroadLatino.com");
 				// Set Timestamp (Elapsed time)
 				activity.GetTimestamps().SetStart(m_InGameTimestamp);
-				break;
+			}
+			break;
 			}
 			// Always will be playing mode
 			activity.SetType(discord::ActivityType::Playing);
@@ -228,7 +247,7 @@ void AppManager::UpdateDiscord()
 			DiscordClient.Core->ActivityManager().UpdateActivity(activity, [](discord::Result result) {
 				// Check error
 				if (result != discord::Result::Ok)
-					cout << "Discord Activity (Err " << static_cast<int>(result) << ")" << endl;
+					std::cout << "Discord Activity (Err " << static_cast<int>(result) << ")" << std::endl;
 			});
 		}
 	}
