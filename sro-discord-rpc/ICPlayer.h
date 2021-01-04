@@ -3,8 +3,8 @@
 
 // Possible types for job mode
 enum JOB_TYPE : char {
-	TRADER = 0,
-	THIEF = 1,
+	THIEF = 0,
+	TRADER = 1,
 	HUNTER = 3,
 	NONE = 4
 };

@@ -168,68 +168,75 @@ void AppManager::UpdateDiscord()
 					details << " [" << guildName << "]";
 				}
 				activity.SetDetails(ss_to_str(details).c_str());
-				// Region Name
-				std::stringstream ssRegion;
-				ssRegion << g_CICPlayer->m_Region;
-				auto nwRegionName = g_CTextStringManager->GetString(ss_to_n_wstr(ssRegion));
-				auto regionName = n_wstr_to_str(nwRegionName);
-				activity.GetAssets().SetLargeText(regionName.c_str());
-				// Region image
-				if (regionName == "Jangan") {
-					activity.GetAssets().SetLargeImage("loading_zangan");
+				// Region Name if is not in job mode
+				if (g_CICPlayer->m_JobType == JOB_TYPE::NONE)
+				{
+					std::stringstream ssRegion;
+					ssRegion << g_CICPlayer->m_Region;
+					auto nwRegionName = g_CTextStringManager->GetString(ss_to_n_wstr(ssRegion));
+					auto regionName = n_wstr_to_str(nwRegionName);
+					activity.GetAssets().SetLargeText(regionName.c_str());
+					// Region image
+					if (regionName == "Jangan") {
+						activity.GetAssets().SetLargeImage("loading_zangan");
+					}
+					else if (regionName == "Donwhang") {
+						activity.GetAssets().SetLargeImage("loading_dunwhang");
+					}
+					else if (regionName == "Hotan") {
+						activity.GetAssets().SetLargeImage("loading_hotan");
+					}
+					else if (regionName == "Samarkand") {
+						activity.GetAssets().SetLargeImage("loading_samarkand");
+					}
+					else if (regionName == "Constantinople") {
+						activity.GetAssets().SetLargeImage("loading_constantinople");
+					}
+					else if (regionName == "Alexandria") {
+						activity.GetAssets().SetLargeImage("loading_alex");
+					}
+					else if (regionName == "Baghdad") {
+						activity.GetAssets().SetLargeImage("loading_baghdad_2011");
+					}
+					else if (regionName == "Donwhang Stone Cave") {
+						activity.GetAssets().SetLargeImage("loading_dungeons_donwhang");
+					}
+					else if (str_starts_with(regionName, "Underground Level")) {
+						activity.GetAssets().SetLargeImage("loading_royalmausoleum");
+					}
+					else if (regionName == "Pharaoh tomb") {
+						activity.GetAssets().SetLargeImage("loading_pharaoh");
+					}
+					else if (regionName == "Togui Village") {
+						activity.GetAssets().SetLargeImage("loading_togui_2011");
+					}
+					else if (regionName == "Flame Mountain") {
+						activity.GetAssets().SetLargeImage("loading_flame_2011");
+					}
+					else if (str_ends_with(regionName, " of the Shipwreck")) {
+						activity.GetAssets().SetLargeImage("loading_wreck_2011");
+					}
+					else if (regionName == "Jupiter Temple") {
+						activity.GetAssets().SetLargeImage("loading_jupiter_field_2011");
+					}
+					else if (str_ends_with(regionName, "'s Room")) {
+						activity.GetAssets().SetLargeImage("loading_hall_2011");
+					}
+					else if (regionName == "Zealots Hideout") {
+						activity.GetAssets().SetLargeImage("loading_hideout_2011");
+					}
+					else if (regionName == "Petra (Dungeon)") {
+						activity.GetAssets().SetLargeImage("loading_petra_2011");
+					}
+					else if (regionName == "Devil's Garden (Dungeon)") {
+						activity.GetAssets().SetLargeImage("loading_garden_2011");
+					}
+					else {
+						activity.GetAssets().SetLargeImage("loading_default");
+					}
 				}
-				else if (regionName == "Donwhang") {
-					activity.GetAssets().SetLargeImage("loading_dunwhang");
-				}
-				else if (regionName == "Hotan") {
-					activity.GetAssets().SetLargeImage("loading_hotan");
-				}
-				else if (regionName == "Samarkand") {
-					activity.GetAssets().SetLargeImage("loading_samarkand");
-				}
-				else if (regionName == "Constantinople") {
-					activity.GetAssets().SetLargeImage("loading_constantinople");
-				}
-				else if (regionName == "Alexandria") {
-					activity.GetAssets().SetLargeImage("loading_alex");
-				}
-				else if (regionName == "Baghdad") {
-					activity.GetAssets().SetLargeImage("loading_baghdad_2011");
-				}
-				else if (regionName == "Donwhang Stone Cave") {
-					activity.GetAssets().SetLargeImage("loading_dungeons_donwhang");
-				}
-				else if (str_starts_with(regionName,"Underground Level")) {
-					activity.GetAssets().SetLargeImage("loading_royalmausoleum");
-				}
-				else if (regionName == "Pharaoh tomb") {
-					activity.GetAssets().SetLargeImage("loading_pharaoh");
-				}
-				else if (regionName == "Togui Village") {
-					activity.GetAssets().SetLargeImage("loading_togui_2011");
-				}
-				else if (regionName == "Flame Mountain") {
-					activity.GetAssets().SetLargeImage("loading_flame_2011");
-				}
-				else if (str_ends_with(regionName, " of the Shipwreck")) {
-					activity.GetAssets().SetLargeImage("loading_wreck_2011");
-				}
-				else if (regionName == "Jupiter Temple") {
-					activity.GetAssets().SetLargeImage("loading_jupiter_field_2011");
-				}
-				else if (str_ends_with(regionName,"'s Room")) {
-					activity.GetAssets().SetLargeImage("loading_hall_2011");
-				}
-				else if ( regionName == "Zealots Hideout") {
-					activity.GetAssets().SetLargeImage("loading_hideout_2011");
-				}
-				else if (regionName == "Petra (Dungeon)") {
-					activity.GetAssets().SetLargeImage("loading_petra_2011");
-				}
-				else if (regionName == "Devil's Garden (Dungeon)") {
-					activity.GetAssets().SetLargeImage("loading_garden_2011");
-				}
-				else {
+				else
+				{
 					activity.GetAssets().SetLargeImage("loading_default");
 				}
 				// Game icon or Character icon

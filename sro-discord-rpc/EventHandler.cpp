@@ -95,9 +95,8 @@ int EventHandler::OnCharacterSelection(MsgStreamBuffer* MsgBuffer)
 		{
 			AppManager::UpdateGameState(GAME_STATE::CHARACTER_SELECTION);
 		}
+		// Reset packet index, because client will use the same buffer
+		MsgBuffer->TotalReadBytes = 0;
 	}
-
-	// Reset packet index, because client will use the same buffer
-	MsgBuffer->TotalReadBytes = 0;
 	return reinterpret_cast<int(__thiscall*)(EventHandler*, MsgStreamBuffer*)>(0x0085FC60)(this, MsgBuffer);
 }
