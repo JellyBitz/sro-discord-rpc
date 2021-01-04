@@ -2,13 +2,16 @@
 Attract more players by using Discord Rich Presence on Silkroad Online!
 
 ### Features
-- Show game status
-- Show charname, level, and guildname if exists
-- Show region name and his related image
-- Updates level, and region almost in realtime!
+- Game status
+- Charname, level, and guildname if exists
+- Elapsed time after login
+- Job mode status
+- Region name and his related image (is not shown if is in job mode)
+- Updates level, and regions almost in realtime!
+- It won't affect client performance
 
 ### Preview
-<img src="https://i.imgur.com/oWxQ0N1.png">
+<img title="User Preview" src="https://i.imgur.com/Ii2G3JQ.png">
 
 ### Starter Guide:
 1. Create an application on [discord developer portal](https://www.elitepvpers.com/link/?https://discord.com/developers/applications)
@@ -16,7 +19,7 @@ Attract more players by using Discord Rich Presence on Silkroad Online!
 3. Then go to _Rich Presence > Art Assets_ and upload all the images from folder `sro-discord-rpc/Resources/assets`
 4. Open your Visual Studio 20XX and set your **CLIENT ID** into `AppManager.cpp`
 5. Build/compile it on RELEASE mode, copy the DLL's (`sro-discord-rpc.dll` and `discord_game_sdk.dll`) to your silkroad folder
-6. Inject the DLL (you could use STUD_PE or similars) and done! 
+6. Inject `sro-discord-rpc.dll` into your client and it's done!
 
 ---
 > ### Do you like this project ? 
@@ -26,5 +29,5 @@ Attract more players by using Discord Rich Presence on Silkroad Online!
 
 ---
 > ##### Hey Thanks!
-> - florian0 for his hooks and asm stuffs!
-> - #HB for his past works and sources
+> - [florian0](https://www.elitepvpers.com/link/?https://gitlab.com/florian0/) for his hooks and asm stuffs!
+> - [#HB](https://www.elitepvpers.com/forum/members/7260849--hb.html) for his past works and sources
