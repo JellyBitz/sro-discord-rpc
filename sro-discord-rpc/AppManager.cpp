@@ -180,7 +180,7 @@ void AppManager::UpdateDiscord()
 					if (regionName == "Jangan") {
 						activity.GetAssets().SetLargeImage("loading_zangan");
 					}
-					else if (regionName == "Donwhang") {
+					else if (regionName == "Western China Donwhang") {
 						activity.GetAssets().SetLargeImage("loading_dunwhang");
 					}
 					else if (regionName == "Hotan") {
