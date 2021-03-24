@@ -14,14 +14,20 @@ Attract more players by using Discord Rich Presence on Silkroad Online!
 <img title="User Preview" src="https://i.imgur.com/Ii2G3JQ.png">
 
 ### Starter Guide:
-1. Create an application on [discord developer portal](https://www.elitepvpers.com/link/?https://discord.com/developers/applications)
+1. Create an application on [discord developer portal](https://discord.com/developers/applications)
 2. Fill some data there but take note about your app **CLIENT ID**
 3. Then go to _Rich Presence > Art Assets_ and upload all the images from folder `sro-discord-rpc/Resources/assets`
 4. Open your Visual Studio 20XX and set your **CLIENT ID** into `AppManager.cpp`
 5. Build / compile it on **RELEASE** mode, then copy `sro-discord-rpc.dll` and `discord_game_sdk.dll` to your silkroad folder
 6. Inject `sro-discord-rpc.dll` into your client and it's done!
 
-Note: Used **VS2017** & **STUD_PE** for DLL injection as personal preference.
+Note:
+- Used **VS2019** & **STUD_PE** for DLL injection as personal preference.
+- Compiled on v80 toolset to avoid installing extra libraries for the ending user.
+
+### How to install v80 toolset?
+
+- Please, follow the [SRO_DevKit Guide](https://florian0.gitlab.io/sro_devkit/build-environment/visual-studio/2005/) for installing VS2005 with only the required fields for it.
 
 ---
 > ### Do you like this project ? 
