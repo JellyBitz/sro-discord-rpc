@@ -18,7 +18,7 @@ int EventHandler::OnPacketRecv(MsgStreamBuffer* MsgBuffer)
 	case 0x3020: // SERVER_ENVIROMENT_CELESTIAL_POSITION
 	{
 		// Called after every teleport
-		AppManager::UpdateGameState(GAME_STATE::IN_GAME);
+		AppManager::UpdateGameState(IN_GAME);
 	}
 	break;
 	case 0x3054: // SERVER_ENTITY_LEVEL_UP
@@ -42,10 +42,10 @@ int EventHandler::OnPacketRecv(MsgStreamBuffer* MsgBuffer)
 				AppManager::UpdateGameState();
 			}
 			// Read packet
-			auto hasCoordinate = MsgBuffer->Read<byte>() == 1;
+			byte hasCoordinate = MsgBuffer->Read<byte>() == 1;
 			if (hasCoordinate)
 			{
-				auto newRegionID = MsgBuffer->Read<short>();
+				short newRegionID = MsgBuffer->Read<short>();
 				// Check if the region will be changed in the next step
 				if (g_CICPlayer->m_Region != newRegionID)
 				{
@@ -58,7 +58,7 @@ int EventHandler::OnPacketRecv(MsgStreamBuffer* MsgBuffer)
 	break;
 	case 0x34B4: // SERVER_GUILD_DATA_END
 	{
-		auto result = reinterpret_cast<int(__thiscall*)(EventHandler*, MsgStreamBuffer*)>(0x0084CAB0)(this, MsgBuffer);
+		int result = reinterpret_cast<int(__thiscall*)(EventHandler*, MsgStreamBuffer*)>(0x0084CAB0)(this, MsgBuffer);
 		// Guild data has been processed, update guild name
 		AppManager::UpdateGameState();
 		// return normally
@@ -78,7 +78,7 @@ int EventHandler::OnNetMsg(MsgStreamBuffer* MsgBuffer)
 	// SERVER_SHARD_LIST_RESPONSE = 0xA101 but coded
 	if (MsgBuffer->Opcode == 0x0FF2)
 	{
-		AppManager::UpdateGameState(GAME_STATE::SERVER_SELECTION);
+		AppManager::UpdateGameState(SERVER_SELECTION);
 	}
 	return reinterpret_cast<int(__thiscall*)(EventHandler*, MsgStreamBuffer*)>(0x0086BFC0)(this, MsgBuffer);
 }
@@ -89,11 +89,11 @@ int EventHandler::OnCharacterSelection(MsgStreamBuffer* MsgBuffer)
 	// Just to be sure...
 	if (MsgBuffer->Opcode == 0xB007)
 	{
-		auto action = MsgBuffer->Read<byte>();
+		byte action = MsgBuffer->Read<byte>();
 		// Update on character list display 
 		if (action == 2)
 		{
-			AppManager::UpdateGameState(GAME_STATE::CHARACTER_SELECTION);
+			AppManager::UpdateGameState(CHARACTER_SELECTION);
 		}
 		// Reset packet index, because client will use the same buffer
 		MsgBuffer->TotalReadBytes = 0;

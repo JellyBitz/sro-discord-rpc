@@ -27,7 +27,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v80</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -95,20 +95,6 @@
     <ClCompile Include="DllMain.cpp" />
     <ClCompile Include="hook.cpp" />
     <ClCompile Include="AppManager.cpp" />
-    <ClCompile Include="Lib\discord-game-sdk\achievement_manager.cpp" />
-    <ClCompile Include="Lib\discord-game-sdk\activity_manager.cpp" />
-    <ClCompile Include="Lib\discord-game-sdk\application_manager.cpp" />
-    <ClCompile Include="Lib\discord-game-sdk\core.cpp" />
-    <ClCompile Include="Lib\discord-game-sdk\image_manager.cpp" />
-    <ClCompile Include="Lib\discord-game-sdk\lobby_manager.cpp" />
-    <ClCompile Include="Lib\discord-game-sdk\network_manager.cpp" />
-    <ClCompile Include="Lib\discord-game-sdk\overlay_manager.cpp" />
-    <ClCompile Include="Lib\discord-game-sdk\relationship_manager.cpp" />
-    <ClCompile Include="Lib\discord-game-sdk\storage_manager.cpp" />
-    <ClCompile Include="Lib\discord-game-sdk\store_manager.cpp" />
-    <ClCompile Include="Lib\discord-game-sdk\types.cpp" />
-    <ClCompile Include="Lib\discord-game-sdk\user_manager.cpp" />
-    <ClCompile Include="Lib\discord-game-sdk\voice_manager.cpp" />
     <ClCompile Include="CString.h" />
   </ItemGroup>
   <ItemGroup>
@@ -120,24 +106,7 @@
     <ClInclude Include="hook.h" />
     <ClInclude Include="AppManager.h" />
     <ClInclude Include="ICPlayer.h" />
-    <ClInclude Include="Lib\discord-game-sdk\achievement_manager.h" />
-    <ClInclude Include="Lib\discord-game-sdk\activity_manager.h" />
-    <ClInclude Include="Lib\discord-game-sdk\application_manager.h" />
-    <ClInclude Include="Lib\discord-game-sdk\core.h" />
     <ClInclude Include="Lib\discord-game-sdk\discord.h" />
-    <ClInclude Include="Lib\discord-game-sdk\event.h" />
-    <ClInclude Include="Lib\discord-game-sdk\ffi.h" />
-    <ClInclude Include="Lib\discord-game-sdk\image_manager.h" />
-    <ClInclude Include="Lib\discord-game-sdk\lobby_manager.h" />
-    <ClInclude Include="Lib\discord-game-sdk\network_manager.h" />
-    <ClInclude Include="Lib\discord-game-sdk\overlay_manager.h" />
-    <ClInclude Include="Lib\discord-game-sdk\relationship_manager.h" />
-    <ClInclude Include="Lib\discord-game-sdk\resource.h" />
-    <ClInclude Include="Lib\discord-game-sdk\storage_manager.h" />
-    <ClInclude Include="Lib\discord-game-sdk\store_manager.h" />
-    <ClInclude Include="Lib\discord-game-sdk\types.h" />
-    <ClInclude Include="Lib\discord-game-sdk\user_manager.h" />
-    <ClInclude Include="Lib\discord-game-sdk\voice_manager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -10,9 +10,9 @@ typedef std::basic_string<wchar_t, std::char_traits<wchar_t>, std::allocator<wch
 typedef std::basic_string<char, std::char_traits<char>, std::allocator<char> > n_string_t;
 
 class n_string : padding, public n_string_t {
-	using basic_string::basic_string;
+	typedef n_string_t basic_string;
 };
 
 class n_wstring : padding, public n_wstring_t {
-	using basic_string::basic_string;
+	typedef n_wstring_t basic_string;
 };

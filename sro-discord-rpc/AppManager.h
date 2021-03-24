@@ -2,17 +2,20 @@
 #include <memory>
 #include <Windows.h>
 #include "Lib/discord-game-sdk/discord.h"
-#include <time.h>
+#include <ctime>
 
 // Discord client wrapper
 struct DiscordClient
 {
-	// Current user connected to this client
-	discord::User CurrentUser;
-	// Discord manager
-	std::unique_ptr<discord::Core> Core;
+	struct IDiscordCore* core;
+	struct IDiscordUserManager* users;
+	struct IDiscordAchievementManager* achievements;
+	struct IDiscordActivityManager* activities;
+	struct IDiscordRelationshipManager* relationships;
+	struct IDiscordApplicationManager* application;
+	struct IDiscordLobbyManager* lobbies;
+	DiscordUser currentUser;
 };
-
 // Game status known
 enum GAME_STATE : char
 {
